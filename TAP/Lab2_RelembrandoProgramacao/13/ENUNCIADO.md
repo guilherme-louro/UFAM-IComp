@@ -1,20 +1,20 @@
 # Descrição do Problema
 
-Para atrair mais clientes, uma loja de roupas oferece um desconto de 5% em compras de R$200,00 ou mais. Escreva um programa (classe `Desconto`) que:
+Um número narcisista é um número que segue a seguinte regra:
 
-- Lê o preço sem desconto de uma compra.
-- Imprime o valor a ser pago pelo cliente com duas casas decimais.
+$$
+n = a_1^m + a_2^m + \dots + a_m^m
+$$
 
-## Exemplo de Entrada e Saída Esperada:
+onde \( m \) é a quantidade de dígitos do número. Por exemplo, o número 153 é um número narcisista, pois:
 
-- **Entrada:** 320.99
-- **Saída:** 304.94
+$$
+153 = 1^3 + 5^3 + 3^3
+$$
+
+Desenvolva um programa (classe `NumeroNarcisista`) que leia um número inteiro do teclado e exiba `"SIM"` se ele for um número narcisista ou `"NAO"`, caso contrário.
 
 ## Dicas:
 
-- A classe `Scanner`, usada para ler dados do teclado, utiliza as configurações do sistema para definir o formato dos números reais. Dependendo da linguagem do seu sistema, um número real pode usar "." (ponto) ou "," (vírgula).
-- Você pode representar os números reais usando `float` ou `double`.
-- Em Java, um número real isolado (e.g., 1.21) é considerado como sendo do tipo `double`. Para usar um número como sendo do tipo `float`, utilize o 'f' ao final do número (e.g., 1.21f).
-- Java converte automaticamente tipos quando não há perda de precisão. Exemplo: `double nota = 8.7f;` // Converte de `float` para `double` automaticamente.
-- Entretanto, quando há perda de precisão, isso não é possível e o uso do cast é obrigatório. Exemplo: `float nota = (float) 8.7;` // Converte de `double` para `float` usando o cast.
-- Para imprimir algo formatado em Java, use o método `System.out.printf(String format, Object... args)`. Exemplo: `System.out.printf("%.3f\n", media);`
+- Use o operador de resto da divisão (`%`).
+- Para calcular uma exponenciação em Java, use o método `Math.pow(double a, double b)`. Exemplo: `double exp = Math.pow(2, 8);`

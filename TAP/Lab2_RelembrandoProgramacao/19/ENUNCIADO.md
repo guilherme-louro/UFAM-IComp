@@ -1,31 +1,18 @@
 # Descrição do Problema
 
-Escreva um programa (classe `ContaEnergia`) que determine o preço a pagar pelo fornecimento de energia elétrica. O programa deve:
+As cédulas do real começaram a entrar em circulação no Brasil em 1994. Diferentemente das moedas que haviam circulado anteriormente, o real não traz na sua nota personalidades da história nacional, mas sim animais da fauna brasileira, conforme mostra a tabela abaixo:
 
-- Receber como entrada o consumo de energia (em kWh) e o tipo de instalação (`R` para residências, `I` para indústrias, e `C` para comércios).
-- Usar a tabela a seguir para calcular o preço devido:
+| Animal              | Valor da Cédula |
+|---------------------|-----------------|
+| Tartaruga           | R$ 2            |
+| Garça               | R$ 5            |
+| Arara               | R$ 10           |
+| Mico-leão-dourado   | R$ 20           |
+| Onça-pintada        | R$ 50           |
+| Garoupa             | R$ 100          |
 
-## Tabela de Preços por Tipo e Faixa de Consumo
-
-| Tipo        | Faixa (kWh) | Preço  |
-|-------------|-------------|--------|
-| Residencial | Até 500     | R$ 0,40|
-|             | Acima de 500| R$ 0,65|
-| Comercial   | Até 1000    | R$ 0,55|
-|             | Acima de 1000|R$ 0,60|
-| Industrial  | Até 5000    | R$ 0,55|
-|             | Acima de 5000|R$ 0,60|
-
-## Requisitos da Saída
-
-- A saída deve ter duas casas decimais.
-- Caso algum valor inválido seja inserido, o programa deve imprimir `-1.00`.
-
-## Exemplo de Entrada e Saída Esperada:
-
-- **Entrada:** 6340 R
-- **Saída:** 4121.00
+Escreva um programa (classe `AnimaisCedulas`) que leia o valor de uma cédula e apresente na tela o nome do animal representado no verso da nota. Se não existir uma cédula no valor inserido, o programa deverá imprimir `"erro"`.
 
 ## Dica:
 
-- A classe `Scanner` não possui o método `nextChar()`. Para ler um caractere do teclado, use: `char tipo = scan.next().charAt(0);`
+- A saída deve ser com acentos e com a primeira letra em maiúsculo.

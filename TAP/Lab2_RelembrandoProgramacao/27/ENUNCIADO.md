@@ -1,17 +1,18 @@
 # Descrição do Problema
 
-As respostas de um candidato a uma prova de múltipla escolha são guardadas em um vetor. O gabarito é guardado em outro vetor de mesmo tamanho. Escreva um programa (classe `PorcentagemAcerto`) que:
+Faça um programa (classe `ValorExpoente`) que use um laço `while` para determinar qual o menor valor de \( n \) necessário para que o valor da seguinte soma ultrapasse um número informado pelo usuário via teclado:
 
-- Leia o vetor de respostas e o vetor do gabarito, nessa ordem.
-- Imprima na saída a porcentagem de acerto do candidato, com duas casas decimais de precisão.
+$$
+S = 1 + 2 + 4 + 8 + \dots + 2^{(n-1)}
+$$
 
-## Considerações:
+## Exemplos de Entrada e Saída Esperada:
 
-- Os dois vetores inseridos são sempre do mesmo tamanho.
-- Os vetores possuem pelo menos um elemento.
-- Para indicar o fim do vetor, o número `-1` é inserido.
+- **Entrada:** 1  
+  **Saída:** 1
 
-## Exemplo de Entrada e Saída Esperada:
+- **Entrada:** 2  
+  **Saída:** 2
 
-- **Entrada:** 1 2 3 4 5 -1 1 2 3 1 1 -1
-- **Saída:** 60.00
+- **Entrada:** 6  
+  **Saída:** 3
