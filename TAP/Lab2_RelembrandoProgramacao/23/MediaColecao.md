@@ -4,5 +4,8 @@ Escreva um programa (classe `MediaColecao`) que calcula a média de uma coleçã
 
 ## Exemplo de Entrada e Saída Esperada:
 
-- **Entrada:** 5 3 9 3 1 -1
-- **Saída:** 4.20
+**Entrada:**  
+5 3 9 3 1 -1
+
+**Saída:**  
+4.20
