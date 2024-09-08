@@ -34,7 +34,8 @@ public class AreaPoligono {
 
 		double sum = 0;
 
-		for (int a = 0; a < n-2; a++) {
+		// até a = n-2, o limite vai até n-1
+		for (int a = 0; a < n-1; a++) {
 			double sum_x = (x[a+1] + x[a]);
 			double sum_y = (y[a+1] - y[a]);
 			sum = sum + sum_x * sum_y;
