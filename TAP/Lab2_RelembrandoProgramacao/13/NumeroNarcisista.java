@@ -1,34 +1,32 @@
 import java.util.Scanner;
 
 public class NumeroNarcisista {
-	public static void main(String[] args) {
-		Scanner scan = new Scanner (System.in);
-		
-		double number = scan.nextInt();
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-		double k = 1;
-		double mod = number%Math.pow(10, k);
+        int numero = scanner.nextInt();
 
-		while (mod > 0){
-			k++;
-			mod = number%Math.pow(10, k);
-		}
-		System.out.printf("%f", k);
+        if (ehNarcisista(numero)) {
+            System.out.println("SIM");
+        } else {
+            System.out.println("NAO");
+        }
 
-		double number_narc = 0;
+        scanner.close();
+    }
 
-		for (double i = k; i > 0; i--) {
-			double digit = number/Math.pow(10, i);
-			digit = Math.floor(digit);
-			number_narc = number_narc + Math.pow(digit, k);
-		}
+    public static boolean ehNarcisista(int numero) {
+        String numStr = String.valueOf(numero);
+        int n = numStr.length(); // Número de dígitos
+        int soma = 0;
+        int temp = numero;
 
-		if (number_narc == number) {
-			System.out.printf("SIM \n");			
-		}
-		else {
-			System.out.printf("NAO \n");			
-		}
-	}
+        while (temp > 0) {
+            int digito = temp % 10;
+            soma += Math.pow(digito, n);
+            temp /= 10;
+        }
 
+        return soma == numero;
+    }
 }
