@@ -1,4 +1,4 @@
-# Descrição do Problema
+# ContaEnergia
 
 Escreva um programa (classe `ContaEnergia`) que determine o preço a pagar pelo fornecimento de energia elétrica. O programa deve:
 

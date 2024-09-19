@@ -1,4 +1,4 @@
-# Descrição do Problema
+# Desconto
 
 Para atrair mais clientes, uma loja de roupas oferece um desconto de 5% em compras de R$200,00 ou mais. Escreva um programa (classe `Desconto`) que:
 

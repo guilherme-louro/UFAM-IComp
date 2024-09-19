@@ -1,4 +1,6 @@
-# Crie uma classe em Java chamada `Coelho` que imprima no console a seguinte figura:
+# Coelho
+
+Crie uma classe em Java chamada `Coelho` que imprima no console a seguinte figura:
 
 ```
 (\ (\

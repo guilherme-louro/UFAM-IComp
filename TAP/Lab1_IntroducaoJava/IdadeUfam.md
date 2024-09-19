@@ -1,4 +1,6 @@
-# Crie uma classe em Java chamada `IdadeUfam` 
+# IdadeUfam
+
+Crie uma classe em Java chamada `IdadeUfam` 
 
 A classe deve:
 - Ler o ano atual do teclado.
