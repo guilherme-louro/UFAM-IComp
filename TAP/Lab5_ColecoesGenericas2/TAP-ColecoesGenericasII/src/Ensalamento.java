@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Comparator;
+
 
 public class Ensalamento {
 	public ArrayList<Sala> salas = new ArrayList<>();
@@ -66,24 +68,85 @@ public class Ensalamento {
 	}
 
 	void alocarTodas(){
-		ArrayList<Turma> turmasOrdenadas = new ArrayList<>(turmas);
-        ArrayList<Sala> salasOrdenadas = new ArrayList<>(salas);
+		// // SALAS
+		// ArrayList<Sala> salasNaoAcessiveis = new ArrayList<>();
+		// // separar entre acessiveis e nao-acessiveis
+		// for (Sala sala : salas) {
+		// 	if (sala.acessivel) {salasAcessiveis.add(sala);}
+		// 	else {salasNaoAcessiveis.add(sala);}
+		// }
+		// // separar entre turmas acessiveis e nao-acessiveis
+		// // salasAcessiveis.sort(Comparator.comparingInt(sala -> sala.capacidade));
+		// // salasAcessiveis.reversed();
+		// // salasNaoAcessiveis.sort(Comparator.comparingInt(sala -> sala.capacidade));
+		// // salasNaoAcessiveis.reversed();
+		// for (Sala salaAtual : salas) {
+		// 	if (salaAtual.acessivel) {salasAcessiveis.add(salaAtual);}
+		// 	else {salasNaoAcessiveis.add(salaAtual);}
+		// }
 
-        turmasOrdenadas.sort((t1, t2) -> Integer.compare(t2.numAlunos, t1.numAlunos));
-        salasOrdenadas.sort((s1, s2) -> Integer.compare(s1.capacidade, s2.capacidade));
+		// // TURMAS
+		// ArrayList<Turma> turmasAcessiveis = new ArrayList<>();
+		// ArrayList<Turma> turmasNaoAcessiveis = new ArrayList<>();
+		// // separar entre acessiveis e nao-acessiveis
+		// for (Turma turma : turmas) {
+		// 	if (turma.acessivel) {turmasAcessiveis.add(turma);}
+		// 	else {turmasNaoAcessiveis.add(turma);}
+		// }
+		// // ordenar em ordem decrescente esses dois arrays
+		// // turmasAcessiveis.sort(Comparator.comparingInt(turma -> turma.numAlunos));
+		// // turmasAcessiveis.reversed();
+		// // turmasNaoAcessiveis.sort(Comparator.comparingInt(turma -> turma.numAlunos));
+		// // turmasNaoAcessiveis.reversed();
 
-		for (Turma turmaAtual : turmasOrdenadas) {
+		// // ALOCAÇÃO
+		// // sala acessível para turmas acessíveis
+		// for (Turma turmaAcessivelAtual : turmasAcessiveis) {
+		// 	for (Sala salaAcessivelAtual : salasAcessiveis) {
+		// 		if (alocar(turmaAcessivelAtual, salaAcessivelAtual)) {
+		// 			// turmasAcessiveis.remove(turmaAcessivelAtual);
+		// 			break;
+		// 		}
+		// 	}
+		// }
+
+		// // juntar as turmas e as salas
+		// ArrayList<Turma> turmasRestantes = new ArrayList<>();
+		// turmasRestantes.addAll(turmasNaoAcessiveis);
+		// turmasRestantes.addAll(turmasAcessiveis);
+		// // turmasRestantes.sort(Comparator.comparingInt(turma -> turma.numAlunos));
+		// // turmasRestantes.reversed();
+
+		// ArrayList<Sala> salasRestantes = new ArrayList<>();
+		// salasRestantes.addAll(salasNaoAcessiveis);
+		// salasRestantes.addAll(salasAcessiveis);
+		// // salasRestantes.sort(Comparator.comparingInt(sala -> sala.capacidade));
+		// // salasRestantes.reversed();
+
+		// // qualquer sala para o resto das turmas
+		// for (Turma turmaAtual : turmasRestantes) {
+		// 	for (Sala salaAtual : salasRestantes) {
+		// 		if (alocar(turmaAtual, salaAtual)) {
+		// 			// turmasAcessiveis.remove(turmaAtual);
+		// 			break;
+		// 		}
+		// 	}
+		// }
+		
+		salas.sort(Comparator.comparingInt(sala -> sala.capacidade));
+
+		for (Turma turmaAtual : turmas) {
 			if (turmaAtual.acessivel) {
-				for (Sala salaAtual : salasOrdenadas) {
+				for (Sala salaAtual : salas) {
 					if (alocar(turmaAtual, salaAtual)) {
 						break;
 					}
 				}
 			}
 		}
-		for (Turma turmaAtual : turmasOrdenadas) {
+		for (Turma turmaAtual : turmas) {
 			if (getSala(turmaAtual) == null) {
-				for (Sala salaAtual : salasOrdenadas) {
+				for (Sala salaAtual : salas) {
 					if (alocar(turmaAtual, salaAtual)) {
 						break;
 					}
@@ -111,10 +174,20 @@ public class Ensalamento {
 	}
 
 	int getTotalSalas(){
+		// int contadorSalas = 0;
+		// for (Sala salaAtual: salas) {
+		// 	contadorSalas++;
+		// }
+		// return contadorSalas;
 		return salas.size();
 	}
 
 	int getTotalTurmas(){
+		// int contadorTurmas = 0;
+		// for (Turma turmaAtual: turmas) {
+		// 	contadorTurmas++;
+		// }
+		// return contadorTurmas;
 		return turmas.size();
 	}
 

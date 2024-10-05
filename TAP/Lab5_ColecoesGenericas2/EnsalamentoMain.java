@@ -1,8 +1,13 @@
-public class AstromechMain {
-	public static void main(String[] args) {
-            Mestre master = new Mestre("Anakyn Skywalker", -41, "Ordem Jedi", "Jedi");
-            Sensor sensor = new Sensor("Azul", 512.0, 240);
-            Conexao conection = new Conexao("SCOMP Link", 1, 4000);
-            Astromech astromech = new Astromech("R2-D2", master, sensor, conection);
-	}	
+public class EnsalamentoMain {
+    public static void main(String[] args) {
+        Ensalamento e1 = new Ensalamento();
+        Sala s1 = new Sala(2, 102, 80, true);
+        e1.addSala(s1);
+        Turma t1 = new Turma("Organização de Computadores", "Andrew S. Tanenbaum", 70, true);
+        t1.addHorario(7);
+        t1.addHorario(21);
+        t1.addHorario(35);
+        e1.addTurma(t1);
+        System.out.println(e1.relatorioSalasPorTurma());
+    }
 }
