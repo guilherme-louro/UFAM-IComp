@@ -12,14 +12,8 @@ public class TanqueCombustivel {
 		double tank_volumn = (4.0 / 3.0) * Math.PI * Math.pow(radius, 3) - air_volumn;
 
 		switch (option) {
-			case 1:
-				System.out.printf("%.4f", air_volumn);
-				break;
-			case 2:
-				System.out.printf("%.4f", tank_volumn);
-				break;
+			case 1 -> System.out.printf("%.4f", air_volumn);
+			case 2 -> System.out.printf("%.4f", tank_volumn);
 		}
-
-		
 	}
 }
