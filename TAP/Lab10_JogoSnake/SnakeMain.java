@@ -87,13 +87,14 @@ public class SnakeMain extends JFrame implements KeyListener {
 
         Snake jogo = new Snake(30, 20);
         
-        // Para jogar na janela usando teclado
+        /* Para jogar na janela usando teclado
         SnakeMain janela = new SnakeMain(jogo);
         jogo.setSaida(janela);
         jogo.setJogador(null);
         jogo.inicia();
+        */
 
-        /*
+        
 
         // Para jogar na janela usando o jogador implementado
         SnakeJogador jogador = new SnakeJogador(jogo);
@@ -102,12 +103,12 @@ public class SnakeMain extends JFrame implements KeyListener {
         jogo.setJogador(jogador);
         jogo.inicia();
 
+        /*
         // Para jogar sem janela usando o jogador implementado (correção do trabalho) 
         SnakeJogador jogador = new SnakeJogador(jogo);
         jogo.setSaida(null);
         jogo.setJogador(jogador);
         jogo.inicia();
-
         */
 
     }

@@ -2,8 +2,8 @@
  * Copyright (c) 2016, IComp/UFAM. All rights reserved.
  */
 
-import java.util.*;
 import java.awt.*;
+import java.util.*;
 
 /**
  * A classe {@code Snake} representa o Jogo Snake, gerando uma arena, comidas e
@@ -106,7 +106,7 @@ public class Snake {
         
         rodando      = true;
         tamSegmento  = 25;
-        delay        = 80;
+        delay        = 1;
         
         rng = (semente > 0) ? new Random(semente) : new Random();
         

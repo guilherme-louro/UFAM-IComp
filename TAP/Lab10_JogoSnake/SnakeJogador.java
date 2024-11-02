@@ -30,95 +30,64 @@ public class SnakeJogador {
      * 
      * @return a próxima direção da cobra.
      */
+
+
     public char getDirecao() {
+        int altura = jogo.getAltura(); // número de linhas
+        int largura = jogo.getLargura(); // número de colunas
+
         LinkedList<Point> segmentosCobra = jogo.getSegmentos();
-
-        // Pega a cabeça da cobra
-        Point cabeca = segmentosCobra.getFirst();
-
-        // Lista de direções possíveis
-        ArrayList<Character> possiveisDirecoes = new ArrayList<>(4);
-
-        // Adiciona direções possíveis
-        if (jogo.isCelulaLivre(cabeca.x, cabeca.y - 1)) {
-            possiveisDirecoes.add('C'); // Cima
-
-                }if (jogo.isCelulaLivre(cabeca.x + 1, cabeca.y)) {
-            possiveisDirecoes.add('D'); // Direita
-
-                }if (jogo.isCelulaLivre(cabeca.x, cabeca.y + 1)) {
-            possiveisDirecoes.add('B'); // Baixo
-
-                }if (jogo.isCelulaLivre(cabeca.x - 1, cabeca.y)) {
-            possiveisDirecoes.add('E'); // Esquerda
-        }
-        // Se não há direções disponíveis, retorna 'N'
-        if (possiveisDirecoes.isEmpty()) {
+        if (segmentosCobra.size() == (altura * largura - 1)) {
             return 'N';
         }
 
-        // Lógica para priorizar a direção em direção à comida
-        char direcaoPreferida = 'N';
-        int menorDistancia = Integer.MAX_VALUE;
-
-        // Obtenha a posição da comida a partir da instância do jogo
+        Point cabeca = segmentosCobra.getFirst();
         Point posicaoComida = jogo.getComida();
+
+        ArrayList<Character> possiveisDirecoes = new ArrayList<>(2); 
+        char direcaoPreferida = 'N';
+        double menorDistancia = Integer.MAX_VALUE;
+
+        // Add as possíveis direções da cobra
+        if (jogo.isCelulaLivre(cabeca.x, cabeca.y - 1) && cabeca.x % 2 == 1) {
+            possiveisDirecoes.add('C'); 
+        }
+
+        if (jogo.isCelulaLivre(cabeca.x + 1, cabeca.y) && cabeca.y % 2 == 1) {
+            possiveisDirecoes.add('D');
+
+        }
+        if (jogo.isCelulaLivre(cabeca.x, cabeca.y + 1) && cabeca.x % 2 == 0) {
+            possiveisDirecoes.add('B'); 
+
+        }
+        if (jogo.isCelulaLivre(cabeca.x - 1, cabeca.y) && cabeca.y % 2 == 0) {
+            possiveisDirecoes.add('E'); 
+        }
 
         for (char direcao : possiveisDirecoes) {
             Point novaPosicao = new Point(cabeca);
 
-            // Calcula a nova posição com base na direção
             switch (direcao) {
-                case 'C':
-                    novaPosicao.y -= 1;
-                    break; // Cima
-                case 'D':
-                    novaPosicao.x += 1;
-                    break; // Direita
-                case 'B':
-                    novaPosicao.y += 1;
-                    break; // Baixo
-                case 'E':
-                    novaPosicao.x -= 1;
-                    break; // Esquerda
+                case 'C' -> novaPosicao.y -= 1;
+                case 'B' -> novaPosicao.y += 1;
+                case 'E' -> novaPosicao.x -= 1;
+                case 'D' -> novaPosicao.x += 1;
             }
 
-            // Calcula a distância até a comida
-            int distancia = Math.abs(novaPosicao.x - posicaoComida.x) + Math.abs(novaPosicao.y - posicaoComida.y);
+            if (jogo.isCelulaLivre(novaPosicao.x, novaPosicao.y)) {
+                double distancia = Math.sqrt(Math.pow(novaPosicao.x - posicaoComida.x, 2) + Math.pow(novaPosicao.y - posicaoComida.y, 2));
 
-            // Se a distância até a comida for menor que a menor distância encontrada
-            if (distancia < menorDistancia) {
-                menorDistancia = distancia;
-                direcaoPreferida = direcao;
+                if (distancia < menorDistancia) {
+                    menorDistancia = distancia;
+                    direcaoPreferida = direcao;
+                } 
+                else if (distancia == menorDistancia) {
+                    Random random = new Random();
+                    direcaoPreferida = possiveisDirecoes.get(random.nextInt(possiveisDirecoes.size()));
+                }
             }
-        }
-
-        // Retorna a direção preferida que leva à comida
+        }    
         return direcaoPreferida;
     }
-
-        // andar em x e y para chegar na comida
-
-        // quando chegar na comida, partir para uma das pontas 
-        // e circular até repetir dnv 
-        
-        /*
-         * IMPLEMENTE AQUI A SUA SOLUÇÃO PARA O JOGO
-         */
-        
-        // ArrayList<Character> possiveisDirecoes = new ArrayList<Character>(4);
-        // Point cabeca = jogo.getSegmentos().getFirst();
-        
-        // // Adiciona as possíveis direções na lista
-        // if (jogo.isCelulaLivre(cabeca.x, cabeca.y-1)) possiveisDirecoes.add('C'); // Cima
-        // if (jogo.isCelulaLivre(cabeca.x+1, cabeca.y)) possiveisDirecoes.add('D'); // Direita
-        // if (jogo.isCelulaLivre(cabeca.x, cabeca.y+1)) possiveisDirecoes.add('B'); // Baixo
-        // if (jogo.isCelulaLivre(cabeca.x-1, cabeca.y)) possiveisDirecoes.add('E'); // Esquerda
-        
-        // // Não existe mais nenhuma direção disponível
-        // if (possiveisDirecoes.size() == 0) return 'N';
-        
-        // // Pega um número aleatório entre 0 e o tamanho da lista e retorna a direção
-        // int posicao = new Random().nextInt(possiveisDirecoes.size());
-        // return possiveisDirecoes.get(posicao);
 }   
